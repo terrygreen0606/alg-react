@@ -14,4 +14,5 @@ npm start
 
 It runs on localhost:3000
 
+This is the result I have made.
 ![alt text](https://github.com/terrygreen0606/alg-react/blob/master/src/assets/result.png)
