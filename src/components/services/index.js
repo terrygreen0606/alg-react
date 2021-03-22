@@ -11,7 +11,7 @@ import { services } from '../../utilities/services';
 const useStyles = makeStyles({
 	root: {
 		padding: '40px 32px 40px 112px',
-		minHeight: '75vh',
+		minHeight: '70vh',
 	},
 	filter: {
 		padding: '12px 0',
@@ -50,7 +50,7 @@ const Services = () => {
 			<Typography variant="h4">Services</Typography>
 
 			<Grid container spacing={1} className={classes.filter}>
-				<Grid item xs={3}>
+				<Grid item xs={12} md={3}>
 					<TextField
 						variant="outlined"
 						label="FILTER"
@@ -60,7 +60,7 @@ const Services = () => {
 						onChange={filterServices}
 					/>
 				</Grid>
-				<Grid item xs={3}>
+				<Grid item xs={12} md={3}>
 					<Button
 						variant="outlined"
 						fullWidth

@@ -13,9 +13,9 @@ import Snackbar from '@material-ui/core/Snackbar';
 
 import Alert from '../Alert';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
 	root: {
-		margin: '12px 0',
+		margin: '24px 0',
 		display: 'flex',
 		backgroundColor: '#FFF',
 		padding: '26px 32px',
@@ -33,10 +33,17 @@ const useStyles = makeStyles({
 		display: 'flex',
 		alignItems: 'center',
 		justifyContent: 'center',
+		[theme.breakpoints.down('sm')]: {
+			justifyContent: 'flex-start',
+			margin: '20px 0',
+		},
 	},
 	textfield: {
 		width: '95%',
 		height: 42,
+		[theme.breakpoints.down('sm')]: {
+			width: '100%',
+		},
 	},
 	label: {
 		marginLeft: 14,
@@ -45,7 +52,7 @@ const useStyles = makeStyles({
 	input: {
 		padding: '12.5px 14px',
 	},
-});
+}));
 
 const Service = ({ service, index }) => {
 	// States
@@ -75,12 +82,16 @@ const Service = ({ service, index }) => {
 	const classes = useStyles();
 
 	return (
-		<Grid className={classes.root + ' services'}>
-			<Grid xs={6} item>
-				<Typography className={classes.title}>{service.name}</Typography>
-				<Typography className={classes.description}>Description</Typography>
+		<Grid container className={classes.root + ' services'}>
+			<Grid xs={12} md={6} item>
+				<Typography className={classes.title} noWrap>
+					{service.name}
+				</Typography>
+				<Typography className={classes.description} noWrap>
+					Description
+				</Typography>
 			</Grid>
-			<Grid item xs={3} className={classes.item}>
+			<Grid item xs={12} md={3} className={classes.item}>
 				<FormControl className={classes.textfield}>
 					<InputLabel htmlFor={'promocode' + index} className={classes.label}>
 						PROMOCODE
@@ -104,7 +115,7 @@ const Service = ({ service, index }) => {
 					/>
 				</FormControl>
 			</Grid>
-			<Grid item xs={3} className={classes.item}>
+			<Grid item xs={12} md={3} className={classes.item}>
 				<Button
 					color={active ? 'inherit' : 'primary'}
 					variant="contained"
@@ -112,7 +123,7 @@ const Service = ({ service, index }) => {
 					size="large"
 					onClick={activate}
 				>
-					{active ? 'Deactivate' : 'Activate'}
+					{active ? 'Deactivate' : 'Activate Bonus'}
 				</Button>
 			</Grid>
 

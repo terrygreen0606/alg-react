@@ -3,7 +3,7 @@ import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
-import CheckCircleOutline from '@material-ui/icons/CheckCircleOutline';
+import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
 
 import logo from '../assets/logo.svg';
 
@@ -29,6 +29,9 @@ const useStyles = makeStyles({
 const menuItems = new Array(8).fill(1);
 
 const Sidebar = () => {
+	const activeColor = (index) => {
+		return index === 5 ? '#FFF' : '#888991';
+	};
 	const classes = useStyles();
 
 	return (
@@ -38,7 +41,7 @@ const Sidebar = () => {
 				{menuItems.map((item, index) => (
 					<ListItem button key={index} className={classes.itemHeight}>
 						<ListItemIcon className={classes.iconWidth}>
-							<CheckCircleOutline style={{ fill: '#888991' }} />
+							<RadioButtonUncheckedIcon style={{ fill: activeColor(index) }} />
 						</ListItemIcon>
 					</ListItem>
 				))}
