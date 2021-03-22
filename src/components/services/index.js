@@ -5,13 +5,16 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 
+// Custom Components
 import Service from './Service';
+
+// Mock Api Data
 import { services } from '../../utilities/services';
 
 const useStyles = makeStyles({
 	root: {
 		padding: '40px 32px 40px 112px',
-		minHeight: '70vh',
+		minHeight: '77vh',
 	},
 	filter: {
 		padding: '12px 0',

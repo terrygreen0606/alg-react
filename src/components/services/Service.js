@@ -11,6 +11,7 @@ import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
 import Snackbar from '@material-ui/core/Snackbar';
 
+// Custom Components
 import Alert from '../Alert';
 
 const useStyles = makeStyles((theme) => ({
@@ -28,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
 	description: {
 		fontSize: 15,
 		color: '#7D7D7D',
+		marginTop: 5,
 	},
 	item: {
 		display: 'flex',
@@ -107,7 +109,7 @@ const Service = ({ service, index }) => {
 									onClick={copyToClipboard}
 									edge="end"
 								>
-									<FileCopyOutlined />
+									<FileCopyOutlined color="primary" fontSize="small" />
 								</IconButton>
 							</InputAdornment>
 						}
