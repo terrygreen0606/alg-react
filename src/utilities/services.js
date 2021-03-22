@@ -7,12 +7,12 @@ export const services = [
 	},
 	{
 		name: 'Appvision.com',
-		code: 'itpowerpore',
+		code: 'second promo',
 		active: true,
 	},
 	{
 		name: 'Analytics.com',
-		code: 'itpowerpore',
+		code: 'third pro',
 		active: true,
 	},
 	{

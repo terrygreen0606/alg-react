@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -60,7 +60,7 @@ const Service = ({ service, index }) => {
 	// States
 	const [clipboardTxt, setClipboardTxt] = useState('');
 	const [snackbarOpen, setSnackbarOpen] = useState(false);
-	const [active, setActive] = useState(service.active);
+	const [activeService, setActiveService] = useState(service);
 
 	// Functions
 	const copyToClipboard = () => {
@@ -74,12 +74,23 @@ const Service = ({ service, index }) => {
 	};
 
 	const handlePromocode = (e) => {
+		setActiveService((prev) => ({
+			...prev,
+			code: e.target.value,
+		}));
 		setClipboardTxt(e.target.value);
 	};
 
 	const activate = () => {
-		setActive(!active);
+		setActiveService((prev) => ({
+			...prev,
+			active: !prev.active,
+		}));
 	};
+
+	useEffect(() => {
+		setActiveService(service);
+	}, [service]);
 
 	const classes = useStyles();
 
@@ -100,7 +111,7 @@ const Service = ({ service, index }) => {
 					</InputLabel>
 					<OutlinedInput
 						id={'promocode' + index}
-						defaultValue={service.code}
+						value={activeService.code}
 						onChange={handlePromocode}
 						endAdornment={
 							<InputAdornment position="end">
@@ -119,13 +130,13 @@ const Service = ({ service, index }) => {
 			</Grid>
 			<Grid item xs={12} md={3} className={classes.item}>
 				<Button
-					color={active ? 'inherit' : 'primary'}
+					color={activeService.active ? 'inherit' : 'primary'}
 					variant="contained"
 					fullWidth
 					size="large"
 					onClick={activate}
 				>
-					{active ? 'Deactivate' : 'Activate Bonus'}
+					{activeService.active ? 'Deactivate' : 'Activate Bonus'}
 				</Button>
 			</Grid>
 
