@@ -6,10 +6,10 @@ import OutlinedInput from '@material-ui/core/OutlinedInput';
 import InputLabel from '@material-ui/core/InputLabel';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import IconButton from '@material-ui/core/IconButton';
-import FileCopyOutlined from '@material-ui/icons/FileCopyOutlined';
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
 import Snackbar from '@material-ui/core/Snackbar';
+import Icon from '@material-ui/core/Icon';
 
 // Custom Components
 import Alert from '../Alert';
@@ -120,7 +120,9 @@ const Service = ({ service, index }) => {
 									onClick={copyToClipboard}
 									edge="end"
 								>
-									<FileCopyOutlined color="primary" fontSize="small" />
+									<Icon color="primary" fontSize="small">
+										content_copy
+									</Icon>
 								</IconButton>
 							</InputAdornment>
 						}

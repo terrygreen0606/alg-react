@@ -3,9 +3,9 @@ import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
-import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
 
 import logo from '../assets/logo.svg';
+import CheckboxIcon from '../customs/CheckboxIcon';
 
 const useStyles = makeStyles({
 	iconWidth: {
@@ -26,6 +26,8 @@ const useStyles = makeStyles({
 		marginBottom: 20,
 	},
 });
+
+// Mock sidebar menu items
 const menuItems = new Array(8).fill(1);
 
 const Sidebar = () => {
@@ -41,7 +43,7 @@ const Sidebar = () => {
 				{menuItems.map((item, index) => (
 					<ListItem button key={index} className={classes.itemHeight}>
 						<ListItemIcon className={classes.iconWidth}>
-							<RadioButtonUncheckedIcon style={{ fill: activeColor(index) }} />
+							<CheckboxIcon style={{ color: activeColor(index) }} />
 						</ListItemIcon>
 					</ListItem>
 				))}
